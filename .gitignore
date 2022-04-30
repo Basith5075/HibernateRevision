@@ -20,4 +20,8 @@
 *.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+bin/
+.classpath
+.project
+.settings/
 hs_err_pid*
