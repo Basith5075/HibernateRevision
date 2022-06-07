@@ -20,15 +20,33 @@
         <!--SQL Dialect -->
             <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
             <property name="current_session_context_class">thread</property>
-  		<!--Disable the second level cache--> 
-  		     <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+            <property name="cache.use_second_level_cache">true</property>   
+              <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>         
+<!--   		Disable the second level cache 
+  		     <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property> -->
   		  
   
   		<!--Echo all the executed SQL statements on stdout--> 
            <property name="show_sql">true</property> 
+              <property name="format_sql">true</property> 
         <!--Drop and recreate the schema on startup-->
         <property name="hbm2ddl.auto">update</property> 
-        <mapping resource="com.to.Player.class"/>  
-        
+<!-- 	<mapping class="com.to.Player"/>
+ 	    <mapping class="com.to.BackupPlayer"/>-->
+    <!--  <mapping class="com.durgesh.Student"/>  
+		<mapping class="com.durgesh.Address"/>
+		<mapping class="com.durgesh.SessionLoadGetMethods"/>  
+		<mapping class="com.durgesh.Certificate"/>
+		<mapping class="com.durgesh.Student1"/>   
+		<mapping class="com.map.onetoone.Answer"/>
+		<mapping class="com.map.onetoone.Question"/>  -->
+		
+<!-- 		<mapping class="com.map.onetomany.Answer"/>
+		<mapping class="com.map.onetomany.Question"/> -->
+<!-- 		<mapping class="com.map.manytomany.Emp"/>
+		<mapping class="com.map.manytomany.Project"/> -->
+		 
+		
+        <mapping class="com.durgesh.Student"/> 
          </session-factory>
 </hibernate-configuration>

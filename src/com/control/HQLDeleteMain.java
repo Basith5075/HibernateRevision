@@ -15,7 +15,7 @@ import org.hibernate.internal.build.AllowSysOut;
 import com.to.Player;
 
 @SuppressWarnings("deprecation")
-public class HQLUpdateMain {
+public class HQLDeleteMain {
 
 	public static void main(String[] args) {
 		Session session =null;
@@ -29,20 +29,20 @@ public class HQLUpdateMain {
 			
 			session = factory.openSession();
 			transaction = session.beginTransaction();
-		     System.out.println("Simple update");
+		     System.out.println("Simple Delete");
 
-		        String qryString = "update Player p set p.age=36 where p.Id = 16";
-		        Query query = session.createQuery(qryString);
+		        String deleteString = "delete from Player p where p.Id =12";
+		        Query query = session.createQuery(deleteString);
 		        int count = query.executeUpdate();
 
 		        System.out.println(count + " Record(s) Updated.");
 		        
-		        System.out.println("Updating with Query Parameters ");
-		        System.out.println("Enter record ID which you want to update");
+		        System.out.println("Deleting with Query Parameters ");
+		        System.out.println("Enter record ID which you want to delete");
 		        int pid =Integer.parseInt(scan.next());
-		        String qryString2 = "update Player p set p.age=49 where p.Id="+pid;
-		        Query query2 = session.createQuery(qryString2);
-//		        query2.setParameter(0,12);
+		        String deleteString2 = "delete from Player p where p.Id = :pid";
+		        Query query2 = session.createQuery(deleteString2);
+		        query2.setParameter("pid",pid);
 
 		        int count2 = query2.executeUpdate();
 
